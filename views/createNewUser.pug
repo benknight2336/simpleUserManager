@@ -1,0 +1,40 @@
+
+html
+    head
+        title= title
+    body
+        h1(class='myClass' id='myId')= createUser
+        form#form 
+        label(for="name") Enter First and Last Name:
+            br
+            input(type='text' id='name' placeholder='Name...')
+            br
+            label(for="username") Enter Username:
+            br
+            input(type='text' id='username' placeholder='Username...')
+            br
+            label(for="email") Enter Email:
+            br
+            input(type='email' id='email' placeholder='Email...')
+            br
+            label(for="age") How old are you?
+            br
+            input(type='number' id='age' placeholder='Age...')
+            br
+            input(type="submit" onclick="submitUser('localhost:3000/allUsers')")
+
+        script.
+            let users = [];
+            function submitUser() {
+                fullName = document.getElementById('name').value;
+                userName = document.getElementById('username').value;
+                emailValue = document.getElementById('email').value;
+                ageValue = document.getElementById('age').value;
+                users.push({fullName, userName, emailValue, ageValue});
+                console.log(users);
+                //window.location = sUrl;
+            }
+
+
+        include foot.pug
+
